@@ -27,7 +27,13 @@ def is_substring_divisible(n, p):
 
 
 for i in range(1000000000, 10000000000):
-    if is_10_digit_number(i) and is_0_through_9(int(i)) and not digits_repeated([n for n in str(i)]):
+    if int(str(i)[1:4])%2 != 0:
+        i = int(str(i)[0:3] + str(int(str(i)[3]) + 1 ) + '000000')
+    elif int(str(i)[2:5])%3 != 0:
+        i = int(str(i)[0:4] + str(int(str(i)[4]) + 1 ) + '00000')
+    elif int(str(i)[3:6])%5 != 0:
+        i = int(str(i)[0:5] + str(int(str(i)[5]) + 1 ) + '0000')
+    elif is_0_through_9(i) and not digits_repeated([n for n in str(i)]):
         if is_substring_divisible(str(i)[1:], 2):
             pandigitals.append(i)
     
