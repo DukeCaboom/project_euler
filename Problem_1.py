@@ -8,5 +8,4 @@ if __name__ == "__main__":
     for j in range(100):
         if j%3 == 0:
             list_3.append(j)
-    print(list(set(list_3 + list_5)))
     print(sum(list(set(list_3 + list_5))))
